@@ -44,6 +44,18 @@ public class MissionBuilder {
     }
 
     public Mission build() {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Mission name is required");
+        }
+        if (target == null || target.isEmpty()) {
+            throw new IllegalArgumentException("Mission target is required");
+        }
+        if (crew <= 0) {
+            throw new IllegalArgumentException("Crew must be greater than 0");
+        }
+        if (days <= 0) {
+            throw new IllegalArgumentException("Days must be greater than 0");
+        }
         return new Mission(this);
     }
 }
